@@ -1,6 +1,5 @@
 import { Categories } from "./collections/Categories";
 import { Articles } from "./collections/Articles";
-import { Snippets } from "./collections/Snippets";
 import { buildConfig } from "payload/config";
 import { Users } from "./collections/Users";
 
@@ -11,10 +10,11 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Snippets, Categories, Articles],
+  collections: [Users, Categories, Articles],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
+  plugins: [],
   graphQL: {
     schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
   },
