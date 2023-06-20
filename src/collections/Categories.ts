@@ -1,19 +1,24 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from "payload/types";
 
 export const Categories: CollectionConfig = {
-  slug: 'categories',
+  slug: "categories",
   labels: {
-    singular: 'Category',
-    plural: 'Categories',
+    singular: "Category",
+    plural: "Categories",
+  },
+  admin: {
+    useAsTitle: "title",
+    listSearchableFields: ["title"],
+    group: 'Filters',
   },
   fields: [
     {
-      name: 'title',
-      type: 'text',
-      label: 'Title',
+      name: "title",
+      type: "text",
+      label: "Title",
       admin: {
-        placeholder: 'Enter title',
-      }
+        placeholder: "Enter category title",
+      },
     },
   ],
-}
+};
