@@ -6,7 +6,10 @@ import { Users } from "./collections/Users";
 import path from "path";
 
 export default buildConfig({
-  serverURL: "http://localhost:3000",
+  serverURL:
+    process.env.NODE_ENV === "production"
+      ? process.env.RENDER_EXTERNAL_URL
+      : process.env.HOSTNAME,
   admin: {
     user: Users.slug,
   },
