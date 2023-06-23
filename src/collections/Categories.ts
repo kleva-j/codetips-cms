@@ -6,6 +6,9 @@ export const Categories: CollectionConfig = {
     singular: "Category",
     plural: "Categories",
   },
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: "title",
     listSearchableFields: ["title"],

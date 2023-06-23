@@ -7,6 +7,9 @@ export const Articles: CollectionConfig = {
     singular: "Article",
     plural: "Articles",
   },
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: "title",
     group: "Content",
