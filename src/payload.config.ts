@@ -10,7 +10,7 @@ export default buildConfig({
     process.env.NODE_ENV === "production"
       ? process.env.RENDER_EXTERNAL_URL
       : process.env.HOSTNAME,
-  cors: [process.env.FRONTEND_URL], // "*" wildflag
+  cors: ["*"], // "*" wildflag
   admin: {
     user: Users.slug,
   },
