@@ -8,9 +8,10 @@
 export interface Config {
   collections: {
     users: User;
-    snippets: Snippet;
     categories: Category;
     articles: Article;
+    Projects: Project;
+    media: Media;
   };
   globals: {};
 }
@@ -28,18 +29,6 @@ export interface User {
   lockUntil?: string;
   password?: string;
 }
-export interface Snippet {
-  id: string;
-  title: string;
-  description: string;
-  createdAt: string;
-  updatedAt: string;
-  category: string | Category;
-  content: {
-    [k: string]: unknown;
-  }[];
-  tags: ('front-end' | 'testing' | 'fundamentals' | 'database' | 'design-pattern' | 'architecture' | 'architecture')[];
-}
 export interface Category {
   id: string;
   title?: string;
@@ -48,8 +37,92 @@ export interface Category {
 }
 export interface Article {
   id: string;
+  title: string;
+  description: string;
+  category: string | Category;
+  createdAt: string;
+  updatedAt: string;
+  type: 'blog' | 'snippet';
+  content: {
+    [k: string]: unknown;
+  }[];
+  tags: (
+    | 'html'
+    | 'css'
+    | 'dom'
+    | 'git'
+    | 'github'
+    | 'bash'
+    | 'webpack'
+    | 'seo'
+    | 'typescript'
+    | 'tutorial'
+    | 'testing'
+    | 'sql'
+    | 'snippets'
+    | 'security'
+    | 'react'
+    | 'linux'
+    | 'node'
+    | 'javascript'
+    | 'design'
+    | 'authentication'
+    | 'api'
+  )[];
+}
+export interface Project {
+  id: string;
   title?: string;
-  type?: 'news';
+  slug: string;
+  createdAt: string;
+  updatedAt: string;
+  tagline: string;
+  url: string;
+  banner_img: string;
+  slider?: {
+    title?: string;
+    image: string | Media;
+    caption?: string;
+    id?: string;
+  }[];
+  github_url: string;
+  highlight: 'show' | 'hide';
+}
+export interface Media {
+  id: string;
+  alt?: string;
   updatedAt: string;
   createdAt: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes?: {
+    thumbnail?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    card?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    tablet?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
 }
