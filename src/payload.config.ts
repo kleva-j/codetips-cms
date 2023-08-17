@@ -10,7 +10,7 @@ import path from "path";
 export default buildConfig({
   serverURL:
     process.env.NODE_ENV === "production"
-      ? process.env.RENDER_EXTERNAL_URL
+      ? process.env.RENDER_EXTERNAL_URL || process.env.VERCEL_URL
       : process.env.HOSTNAME,
   cors: "*", // "*" wildflag
   admin: {
